@@ -963,7 +963,7 @@ struct MDBX_env {
     size_t shrink; /* threshold to shrink datafile */
   } me_dbgeo;
 
-#if defined(_WIN32) || defined(_WIN64)
+#if (defined(_WIN32) || defined(_WIN64)) && defined(_MSC_VER)
   MDBX_srwlock me_remap_guard;
   /* Workaround for LockFileEx and WriteFile multithread bug */
   CRITICAL_SECTION me_windowsbug_lock;
