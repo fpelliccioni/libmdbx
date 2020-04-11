@@ -767,7 +767,7 @@ MDBX_INTERNAL_FUNC int mdbx_rpid_clear(MDBX_env *env);
 ///   Otherwise (not 0 and not -1) - error code.
 MDBX_INTERNAL_FUNC int mdbx_rpid_check(MDBX_env *env, uint32_t pid);
 
-#if defined(_WIN32) || defined(_WIN64)
+#if (defined(_WIN32) || defined(_WIN64)) && defined(_MSC_VER)
 
 typedef union MDBX_srwlock {
   struct {
